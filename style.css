@@ -1,0 +1,166 @@
+/**********Class and ID Styles**********/
+
+
+
+
+/**********YouTube App & Carousel**********/
+
+/*****YouTube App Part*****/
+
+.youtube-pod-page-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.youtube-pod-page-section {
+	text-align: center;
+	width: 100%;
+}
+
+.yt-subscribe-button-move {
+    margin: 5px 0 0 11%;
+}
+
+#youtube-pod-page-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.youtube-pod-page-video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#yt-sub-btn-spacing {
+    margin-top: 10px;
+}
+
+
+/*****Carousel of YouTube App*****/
+
+.carousel {
+    position: relative;
+    width: calc(100% - 60px);
+    margin: 0 auto;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 3px;
+}
+
+.carousel__track-container {
+    background: blue;
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-pod-page-main {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 130px;
+    transition: transform 250ms ease-in;
+}
+
+.youtube-pod-page-li {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    cursor: pointer;
+    transition: box-shadow 350ms;
+    border-radius: 8px;
+}
+
+.youtube-pod-page-li:hover .thumb {
+	box-shadow: 1px 1px 5px rgba(0,0,0,1);
+	transition: all 250ms;
+}
+
+.youtube-pod-page-li .thumb {
+	width: 100%;
+}
+
+/***
+.youtube-pod-page-li:hover .details {
+	color: #f04400;
+	opacity: 0.8;
+	transition: all 250ms;
+}
+
+.youtube-pod-page-li .details {
+	padding: 5px;
+}
+
+.youtube-pod-page-li .details h4 {
+	font-size: 0.85rem;
+	text-align: center;
+}
+***/
+
+.carousel__image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.0);
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+
+}
+
+.carousel__button--left{
+    left: -25px;
+}
+
+.carousel__button--right{
+    right: -25px;
+}
+
+.carousel__button img {
+    width: 25px;
+    height: 25px;
+}
+
+.carousel__nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.carousel__indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: rgba(0,0,0,0.3);
+    margin: 0 12px;
+    padding: 0;
+}
+
+.carousel__indicator.current-slide {
+    background: rgba(0,0,0,0.75);
+}
+
+.carousel-buttons-hidden {
+    display: none;
+}
