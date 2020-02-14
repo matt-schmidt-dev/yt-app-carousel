@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
     var options = {
         part: 'snippet',
         key: key,
-        maxResults: 10,
+        maxResults: 20,
         playlistId: playlistId
     }
 
@@ -52,9 +52,6 @@ jQuery(document).ready(function () {
                   var slides = Array.from(track.children);
                   var nextButton = document.querySelector('.carousel__button--right');
                   var prevButton = document.querySelector('.carousel__button--left');
-                  var dotsNav = document.querySelector('.carousel__nav');
-                  var dots = Array.from(dotsNav.children);
-
 
                   var slideWidth = slides[0].getBoundingClientRect().width;
 
@@ -76,6 +73,8 @@ jQuery(document).ready(function () {
 
                   //Click Next Equals Move to Left
                   nextButton.addEventListener('click', e => {
+
+
                     var currentTrackPositionLeft = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().left;
                     var currentTrackPositionRight = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().right;
                     var currentTrackContainerWidth = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().width;
@@ -84,7 +83,7 @@ jQuery(document).ready(function () {
                     if (currentTrackPositionRight < currentTrackContainerWidth + 5 || currentTrackPositionRight == currentTrackContainerWidth + 5) {
                     track.style.right = currentTrackPositionLeft + 'px)';
                   }else {
-                    track.style.transform = 'translateX(calc(' + (currentTrackPositionLeft - currentCarouselLeft) + 'px - 355px))';
+                    track.style.transform = 'translateX(calc(' + currentTrackPositionLeft + 'px - 200px))';
                   }
                     });
 
@@ -96,7 +95,7 @@ jQuery(document).ready(function () {
                     if (currentTrackPositionLeft > 5 || currentTrackPositionLeft == 5) {
                     track.style.left = currentTrackPositionLeft + 'px)';
                   }else {
-                    track.style.transform = 'translateX(calc(' + (currentTrackPositionLeft - currentCarouselLeft) + 'px + 335px))';
+                    track.style.transform = 'translateX(calc(' + currentTrackPositionLeft + 'px + 200px))';
                   }
                   });
 

@@ -3,9 +3,9 @@
 
 
 
-/**********YouTube App & Carousel**********/
+/**********YouTube App iFrame & Carousel**********/
 
-/*****YouTube App Part*****/
+/*****iFrame of YouTube App*****/
 
 .youtube-pod-page-container {
 	width: 100%;
@@ -45,7 +45,7 @@
 
 .carousel {
     position: relative;
-    width: calc(100% - 60px);
+    width: calc(100% - 50px);
     margin: 0 auto;
     border-style: solid;
     border-color: whitesmoke;
@@ -53,9 +53,13 @@
 }
 
 .carousel__track-container {
-    background: blue;
+    background: whitesmoke;
     position: relative;
     overflow: hidden;
+		border-width: 1px;
+		border-style: solid;
+		border-color: black;
+
 }
 
 .youtube-pod-page-main {
@@ -63,7 +67,7 @@
     margin: 0;
     list-style: none;
     position: relative;
-    height: 130px;
+    height: 126px;
     transition: transform 250ms ease-in;
 }
 
@@ -72,20 +76,18 @@
     top: 0;
     bottom: 0;
     width: 200px;
+		height: 120px;
+		padding: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-style: solid;
-    border-width: 5px;
-    border-color: white;
     cursor: pointer;
     transition: box-shadow 350ms;
-    border-radius: 8px;
 }
 
 .youtube-pod-page-li:hover .thumb {
-	box-shadow: 1px 1px 5px rgba(0,0,0,1);
+	box-shadow: 2px 2px 5px rgba(0,0,0,1);
 	transition: all 250ms;
 }
 
@@ -142,9 +144,7 @@
 }
 
 .carousel__nav {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    padding: 0;
 }
 
 .carousel__indicator {
