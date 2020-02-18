@@ -1,4 +1,4 @@
-//YouTube-App-Pod-Page
+//YouTube-App-Carousel
 jQuery(document).ready(function () {
 
     var key = 'AIzaSyCipJMqEaZvCAQycCJHb8Y5tti3h8Z56PQ';
@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
     var options = {
         part: 'snippet',
         key: key,
-        maxResults: 20,
+        maxResults: 10,
         playlistId: playlistId
     }
 
@@ -73,32 +73,33 @@ jQuery(document).ready(function () {
 
                   //Click Next Equals Move to Left
                   nextButton.addEventListener('click', e => {
+                    var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
+                    var trackContainerWidth = document.querySelector('.carousel__track-container').getBoundingClientRect().width;
 
-
-                    var currentTrackPositionLeft = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().left;
-                    var currentTrackPositionRight = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().right;
-                    var currentTrackContainerWidth = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().width;
-                    var currentCarouselLeft = document.querySelector('.carousel').getBoundingClientRect().left;
-
-                    if (currentTrackPositionRight < currentTrackContainerWidth + 5 || currentTrackPositionRight == currentTrackContainerWidth + 5) {
-                    track.style.right = currentTrackPositionLeft + 'px)';
-                  }else {
-                    track.style.transform = 'translateX(calc(' + currentTrackPositionLeft + 'px - 200px))';
-                  }
+                      if(currentTransform == null || Number(currentTransform[4]) == 0) {
+                          track.style.transform = 'translateX(calc(-412px))';
+                      } else if (Number(currentTransform[4]) >= (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
+                          track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px - 412px))';
+                      }
                     });
 
-                  //Click Prev Equals Move to Right
-                  prevButton.addEventListener('click', e => {
-                    var currentTrackPositionLeft = document.querySelector('.youtube-pod-page-main').getBoundingClientRect().left;
-                    var currentCarouselLeft = document.querySelector('.carousel').getBoundingClientRect().left;
 
-                    if (currentTrackPositionLeft > 5 || currentTrackPositionLeft == 5) {
-                    track.style.left = currentTrackPositionLeft + 'px)';
-                  }else {
-                    track.style.transform = 'translateX(calc(' + currentTrackPositionLeft + 'px + 200px))';
-                  }
+                  //Click Prev Equals Move to Right
+
+                  prevButton.addEventListener('click', e => {
+                    var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
+
+                    if (currentTransform == null || Number(currentTransform[4]) >= 3) {
+                    track.style.transform = 'translateX(calc(0px))';
+                  } else if (Number(currentTransform[4]) <= -1 && Number(currentTransform[4]) >= -2060) {
+                        track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px + 412px))';
+                      }
                   });
 
+
+                  //find width of "youtube-pod-page-container"
+                  //find translateX
+                  //if translatex >= (numberOfSlides * widthOfSlides) - widthOfContainer then nextButton does nothing
 
             });
 
@@ -112,6 +113,5 @@ jQuery(document).ready(function () {
         var id = $(this).attr('data-key');
         mainVid(id);
     });
-
 
 });

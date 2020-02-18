@@ -1,16 +1,11 @@
-/**********Class and ID Styles**********/
-
-
-
-
 /**********YouTube App iFrame & Carousel**********/
 
-/*****iFrame of YouTube App*****/
-
 .youtube-pod-page-container {
-	width: 100%;
+	width: 95%;
 	margin: 0 auto;
 }
+
+/*****iFrame of YouTube App*****/
 
 .youtube-pod-page-section {
 	text-align: center;
@@ -37,7 +32,7 @@
 }
 
 #yt-sub-btn-spacing {
-    margin-top: 10px;
+    margin: 15px 0;
 }
 
 
@@ -45,21 +40,14 @@
 
 .carousel {
     position: relative;
-    width: calc(100% - 50px);
+    width: 100%;
     margin: 0 auto;
-    border-style: solid;
-    border-color: whitesmoke;
-    border-width: 3px;
 }
 
 .carousel__track-container {
-    background: whitesmoke;
     position: relative;
     overflow: hidden;
-		border-width: 1px;
-		border-style: solid;
-		border-color: black;
-
+    background-color: rbga(0,0,0,0);
 }
 
 .youtube-pod-page-main {
@@ -86,31 +74,19 @@
     transition: box-shadow 350ms;
 }
 
-.youtube-pod-page-li:hover .thumb {
-	box-shadow: 2px 2px 5px rgba(0,0,0,1);
-	transition: all 250ms;
-}
-
 .youtube-pod-page-li .thumb {
 	width: 100%;
+	border-width: 1px;
+	border-color: rgba(0,0,255,0);
+	border-style: solid;
 }
 
-/***
-.youtube-pod-page-li:hover .details {
-	color: #f04400;
-	opacity: 0.8;
+.youtube-pod-page-li:hover .thumb {
+	border-color: rgba(0,0,255,1);;
+	border-style: solid;
+	border-width: 1px;
 	transition: all 250ms;
 }
-
-.youtube-pod-page-li .details {
-	padding: 5px;
-}
-
-.youtube-pod-page-li .details h4 {
-	font-size: 0.85rem;
-	text-align: center;
-}
-***/
 
 .carousel__image {
     max-height: 100%;
@@ -123,11 +99,10 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.0);
+    background: rgba(255,255,255,0);
     border: 0;
     border-radius: 50%;
     padding: 0;
-
 }
 
 .carousel__button--left{
