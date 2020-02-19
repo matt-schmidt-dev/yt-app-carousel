@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
     var options = {
         part: 'snippet',
         key: key,
-        maxResults: 10,
+        maxResults: 25,
         playlistId: playlistId
     }
 
@@ -43,6 +43,10 @@ jQuery(document).ready(function () {
             $('.youtube-pod-page-main').append(`
 							<li class="item youtube-pod-page-li" data-key="${vid}">
 								<img src="${thumb}" alt="" class="thumb">
+                <img src="https://image.flaticon.com/icons/svg/733/733590.svg" alt="" class="yt-carousel-play-img">
+                <div class="yt-carousel-overlays">
+                  <div class="yt-carousel-title">${title}</div>
+                <div>
 							</li>
 						`);
 
@@ -76,10 +80,19 @@ jQuery(document).ready(function () {
                     var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
                     var trackContainerWidth = document.querySelector('.carousel__track-container').getBoundingClientRect().width;
 
-                      if(currentTransform == null || Number(currentTransform[4]) == 0) {
-                          track.style.transform = 'translateX(calc(-412px))';
-                      } else if (Number(currentTransform[4]) >= (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
-                          track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px - 412px))';
+                      if (currentTransform == null || Number(currentTransform[4]) == 0) {
+                          track.style.transform = 'translateX(calc(-300px))';
+                      } else if (Number(currentTransform[4]) > (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth))
+                      && Number(currentTransform[4]) <= (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 300) {
+                          track.style.transform = 'translateX(calc(' + ( -1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 'px))';
+                      } else if (Number(currentTransform[4]) > (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
+                          track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px - 300px))';
+                        /***
+                          setTimeout(function(){
+                            if (Number(currentTransform[4]) < (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
+                              track.style.transform = 'translateX(calc(' + (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 'px))';
+                            }; }, 3000);
+                        ***/
                       }
                     });
 
@@ -89,10 +102,23 @@ jQuery(document).ready(function () {
                   prevButton.addEventListener('click', e => {
                     var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
 
-                    if (currentTransform == null || Number(currentTransform[4]) >= 3) {
+                    if (currentTransform == null || Number(currentTransform[4]) == 0) {
                     track.style.transform = 'translateX(calc(0px))';
-                  } else if (Number(currentTransform[4]) <= -1 && Number(currentTransform[4]) >= -2060) {
-                        track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px + 412px))';
+                    } else if (Number(currentTransform[4]) >= -299 && Number(currentTransform[4]) < 0) {
+                          track.style.transform = 'translateX(calc(0px))';
+                    } else if (Number(currentTransform[4]) <= -1) {
+                        track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px + 300px))';
+
+
+
+                        /***setTimeout(function(){
+                            if (Number(currentTransform[4]) < (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
+                              track.style.transform = 'translateX(calc(' + (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 'px))';
+                            }; }, 3000);
+                        ***/
+
+
+
                       }
                   });
 
@@ -114,4 +140,140 @@ jQuery(document).ready(function () {
         mainVid(id);
     });
 
+});
+
+
+
+
+
+
+
+
+
+//Parallax
+$(window).scroll(function() {
+  parallax();
+});
+
+function parallax() {
+
+  var wScroll = $(window).scrollTop();
+
+  $('.parallax--bg').css('background-position', 'center ' + (wScroll * 0.5) + 'px');
+}
+
+
+
+
+
+
+
+//Smooth Scrolling
+$(document).ready(function() {
+
+  $('.scroll').click(function(e) {
+    e.preventDefault();
+    $('html,body').animate({
+      scrollTop: $(this.hash).offset().top
+    }, 1000);
+  });
+});
+
+
+
+
+
+
+
+
+//Scroll Animation for Upper About Section
+$(window).scroll(function() {
+
+    var upperMidSectHeight = document.querySelector('.upper-mid-sect').offsetHeight;
+    var innerMidSectHeight = document.querySelector('.inner-mid-sect').offsetHeight;
+    var bottomSectionHeight = document.querySelector('.bottom-section').offsetHeight;
+    var lowerBottomSectionHeight = document.querySelector('.lower-bottom-section').offsetHeight;
+
+    if ( $(window).width() > 1000 ) {
+
+        if ($(document).scrollTop() > upperMidSectHeight/4 ) {
+            $('.lang-box').addClass('fade-in-scroll');
+        }
+
+        if ($(document).scrollTop() > upperMidSectHeight + (innerMidSectHeight/4)) {
+            $('.about-me-head-2').addClass('fade-in-scroll');
+            $('.about-me-title-line').addClass('fade-in-scroll-delay-100');
+            $('.about-me-head-3').addClass('fade-in-scroll-delay-200');
+
+            $('.about-img-descript').addClass('fade-in-scroll-delay-200');
+
+            $('.ind-tech-skill:nth-child(1)').addClass('fade-in-scroll');
+            $('.ind-tech-skill:nth-child(2)').addClass('fade-in-scroll-delay-100');
+            $('.ind-tech-skill:nth-child(3)').addClass('fade-in-scroll-delay-200');
+            $('.ind-tech-skill:nth-child(4)').addClass('fade-in-scroll-delay-300');
+        }
+
+        if ($(document).scrollTop() > upperMidSectHeight + innerMidSectHeight + (bottomSectionHeight/4)) {
+            $('.port-head-h2').addClass('fade-in-scroll');
+            $('.port-head-title-line').addClass('fade-in-scroll-delay-100');
+            $('.port-head-h3').addClass('fade-in-scroll-delay-200');
+
+            $('.port-head-two').addClass('fade-in-scroll-delay-100');
+
+            $('.grid-portfolio').addClass('fade-in-scroll-delay-200');
+        }
+
+        if ($(document).scrollTop() > upperMidSectHeight + innerMidSectHeight + bottomSectionHeight + (lowerBottomSectionHeight/4)) {
+            $('.aci-h2').addClass('fade-in-scroll');
+            $('.aci-title-line').addClass('fade-in-scroll-delay-100');
+            $('.aci-h3').addClass('fade-in-scroll-delay-200');
+
+            $('.cfa-h2').addClass('fade-in-scroll');
+            $('.cfa-title-line').addClass('fade-in-scroll-delay-100');
+            $('.cfa-h3').addClass('fade-in-scroll-delay-200');
+
+            $('.contact-form, .contact-info-ind, .social-media').addClass('fade-in-scroll-delay-200');
+        }
+
+    } else {
+        $(document).ready(function () {
+            $('.lang-box, .about-me-head-2, .about-me-title-line, .about-me-head-3, .about-img-descript, .ind-tech-skill, .port-head-h2, .port-head-title-line, .port-head-h3, .port-head-two, .grid-portfolio, .aci-h2, .aci-title-line, .aci-h3, .cfa-h2, .cfa-title-line, .cfa-h3, .contact-form, .contact-info-ind, .social-media').addClass('no-animation');
+        });
+    }
+});
+
+
+
+
+
+
+//Load Header on Page Load
+$(document).ready(function() {
+    $('.head-sect-info-h1').addClass('fade-in-scroll');
+});
+
+
+
+
+
+
+//Highlight Page Links
+$(document).ready(function() {
+  $('.nav-item').click(function() {
+    $('.nav-item').removeClass("active");
+    $(this).addClass("active");
+
+  });
+});
+
+
+
+
+
+
+
+//Grid Links
+$(".grid-portfolio-item").click(function() {
+  window.location = $(this).find("a").attr("href");
+  return false;
 });

@@ -1,4 +1,8 @@
-/**********YouTube App iFrame & Carousel**********/
+**********YouTube App iFrame & Carousel**********/
+
+.yt-app-main-container {
+	width: 95vw;
+}
 
 .youtube-pod-page-container {
 	width: 95%;
@@ -55,7 +59,7 @@
     margin: 0;
     list-style: none;
     position: relative;
-    height: 126px;
+    height: 94px;
     transition: transform 250ms ease-in;
 }
 
@@ -63,9 +67,9 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 200px;
-		height: 120px;
-		padding: 3px;
+    width: 150px;
+		height: 90px;
+		padding: 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,16 +80,40 @@
 
 .youtube-pod-page-li .thumb {
 	width: 100%;
-	border-width: 1px;
-	border-color: rgba(0,0,255,0);
-	border-style: solid;
 }
 
-.youtube-pod-page-li:hover .thumb {
-	border-color: rgba(0,0,255,1);;
-	border-style: solid;
-	border-width: 1px;
-	transition: all 250ms;
+.yt-carousel-play-img {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+}
+
+.yt-carousel-overlays {
+	position: absolute;
+	margin: 2px 0 0 0;
+	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+	height: 90px;;
+	width: 150px;
+	transition: 350ms;
+}
+
+.youtube-pod-page-li:hover .yt-carousel-overlays {
+	position: absolute;
+	background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0));
+}
+
+.yt-carousel-title {
+	color: whitesmoke;
+	font-family: 'Oswald', sans-serif;
+	display: none;
+	padding: 3px 5px;
+	font-size: 13px;
+	font-weight: 300;
+	line-height: 16px;
+}
+
+.youtube-pod-page-li:hover .yt-carousel-title {
+	display: block;
 }
 
 .carousel__image {

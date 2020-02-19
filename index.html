@@ -5,42 +5,44 @@
     <title>Matt Travis Media</title>
     <link rel="icon" type="img/jpg" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Lora|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600|Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
     <body>
-      <div class="youtube-pod-page-container">
-        <section id="youtube-pod-page-video" class="youtube-pod-page-section"></section>
-        <div id="yt-sub-btn-spacing">
-          <script src="https://apis.google.com/js/platform.js"></script>
-          <div class="g-ytsubscribe" data-channelid="UC29ju8bIPH5as8OGnQzwJyA" data-layout="default" data-count="default"></div>
-        </div>
-
-
-          <!--
-          //replace this div witht he carousel track code
-          <div class="youtube-pod-page-main"></div>
-          -->
-          <div class="carousel">
-            <button class="carousel__button carousel__button--left">
-                <img src="https://image.flaticon.com/icons/svg/271/271220.svg">
-            </button>
-            <div class="carousel__track-container">
-                <!--
-                  replace class=carousel__track with class=youtube-pod-page-main
-                <ul class="carousel__track">
-                -->
-                  <!--Individual Slides Here-->
-                <ul class="youtube-pod-page-main">
-                </ul>
-            </div>
-            <button class="carousel__button carousel__button--right">
-                <img src="https://image.flaticon.com/icons/svg/271/271228.svg">
-            </button>
-            <div class="carousel__nav"></div>
+      <div class="yt-app-main-container">
+        <div class="youtube-pod-page-container">
+          <section id="youtube-pod-page-video" class="youtube-pod-page-section"></section>
+          <div id="yt-sub-btn-spacing">
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channelid="UC29ju8bIPH5as8OGnQzwJyA" data-layout="default" data-count="default"></div>
           </div>
 
 
+            <!--
+            //replace this div witht he carousel track code
+            <div class="youtube-pod-page-main"></div>
+            -->
+            <div class="carousel">
+              <button class="carousel__button carousel__button--left">
+                  <img src="https://image.flaticon.com/icons/svg/271/271220.svg">
+              </button>
+              <div class="carousel__track-container">
+                  <!--
+                    replace class=carousel__track with class=youtube-pod-page-main
+                  <ul class="carousel__track">
+                  -->
+                    <!--Individual Slides Here-->
+                  <ul class="youtube-pod-page-main">
+                  </ul>
+              </div>
+              <button class="carousel__button carousel__button--right">
+                  <img src="https://image.flaticon.com/icons/svg/271/271228.svg">
+              </button>
+              <div class="carousel__nav"></div>
+            </div>
+
+
+        </div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="script.js"></script>
