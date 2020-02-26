@@ -36,6 +36,7 @@ jQuery(document).ready(function () {
 
             var thumb = item.snippet.thumbnails.medium.url;
             var title = item.snippet.title;
+            var titleShort = title.substring(0,45) + "....";
             var desc = item.snippet.description.substring(0, 100);
             var vid = item.snippet.resourceId.videoId;
 
@@ -43,9 +44,12 @@ jQuery(document).ready(function () {
             $('.youtube-pod-page-main').append(`
 							<li class="item youtube-pod-page-li" data-key="${vid}">
 								<img src="${thumb}" alt="" class="thumb">
-                <img src="https://image.flaticon.com/icons/svg/733/733590.svg" alt="" class="yt-carousel-play-img">
+                <div class="yt-carousel-play-symbol">
+								    <img src="images/play.png" alt="Youtube Carousel Play" class="yt-carousel-play-btn">
+								</div>
+                <!--<img src="https://image.flaticon.com/icons/svg/733/733590.svg" alt="" class="yt-carousel-play-img">-->
                 <div class="yt-carousel-overlays">
-                  <div class="yt-carousel-title">${title}</div>
+                  <div class="yt-carousel-title">${titleShort}</div>
                 <div>
 							</li>
 						`);

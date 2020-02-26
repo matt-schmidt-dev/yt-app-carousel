@@ -79,7 +79,28 @@
 }
 
 .youtube-pod-page-li .thumb {
-	width: 100%;
+		width: 100%;
+}
+
+.yt-carousel-play-symbol {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20%;
+    display: flex;
+		justify-content: center;
+		align-items: center;
+}
+
+.yt-carousel-play-btn {
+	width: 15px;
+	height: 15px;
+	opacity: 0.85;
+}
+
+.youtube-pod-page-li:hover .yt-carousel-play-symbol {
+    background-color: rgba(178,34,34,1);
 }
 
 .yt-carousel-play-img {
