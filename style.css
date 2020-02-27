@@ -1,4 +1,4 @@
-**********YouTube App iFrame & Carousel**********/
+/**********YouTube App iFrame & Carousel**********/
 
 .yt-app-main-container {
 	width: 95vw;
@@ -42,6 +42,16 @@
 
 /*****Carousel of YouTube App*****/
 
+
+.yt-carousel-more-vids {
+    color: black;
+    font-weight: 500;
+    text-align: left;
+		font-family: 'Roboto', 'sans-serif';
+		margin: 10px 0 0 0;
+		font-size: 15px;
+}
+
 .carousel {
     position: relative;
     width: 100%;
@@ -59,7 +69,7 @@
     margin: 0;
     list-style: none;
     position: relative;
-    height: 94px;
+    height: 154px;
     transition: transform 250ms ease-in;
 }
 
@@ -67,8 +77,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 150px;
-		height: 90px;
+    width: 250px;
+		height: 150px;
 		padding: 2px;
     display: flex;
     flex-direction: column;
@@ -84,8 +94,8 @@
 
 .yt-carousel-play-symbol {
     position: absolute;
-    width: 40px;
-    height: 25px;
+    width: 50px;
+    height: 35px;
     background-color: rgba(0,0,0,0.7);
     border-radius: 20%;
     display: flex;
@@ -113,8 +123,8 @@
 	position: absolute;
 	margin: 2px 0 0 0;
 	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
-	height: 90px;;
-	width: 150px;
+	height: 150px;;
+	width: 250px;
 	transition: 350ms;
 }
 
@@ -128,9 +138,10 @@
 	font-family: 'Oswald', sans-serif;
 	display: none;
 	padding: 3px 5px;
-	font-size: 13px;
+	font-size: 20px;
 	font-weight: 300;
-	line-height: 16px;
+	line-height: 30px;
+	letter-spacing: 1px;
 }
 
 .youtube-pod-page-li:hover .yt-carousel-title {
@@ -187,4 +198,44 @@
 
 .carousel-buttons-hidden {
     display: none;
+}
+
+
+
+
+
+@media (max-width: 500px) {
+
+	.youtube-pod-page-main {
+	    height: 94px;
+	}
+
+	.youtube-pod-page-li {
+	    width: 150px;
+			height: 90px;
+	}
+
+	.yt-carousel-overlays {
+		height: 90px;;
+		width: 150px;
+	}
+
+	.yt-carousel-play-symbol {
+	    width: 40px;
+	    height: 25px;
+	}
+
+	.yt-carousel-play-btn {
+		width: 13px;
+		height: 13px;
+	}
+
+	.yt-carousel-title {
+		padding: 3px 5px;
+		font-size: 13px;
+		line-height: 20px;
+		letter-spacing: 0;
+	}
+
+
 }

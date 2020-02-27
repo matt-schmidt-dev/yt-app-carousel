@@ -84,13 +84,13 @@ jQuery(document).ready(function () {
                     var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
                     var trackContainerWidth = document.querySelector('.carousel__track-container').getBoundingClientRect().width;
 
-                      if (currentTransform == null || Number(currentTransform[4]) == 0) {
-                          track.style.transform = 'translateX(calc(-300px))';
+                      if(currentTransform == null || Number(currentTransform[4]) == 0) {
+                          track.style.transform = 'translateX(calc(-' + slideWidth * 2 + 'px))';
                       } else if (Number(currentTransform[4]) > (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth))
-                      && Number(currentTransform[4]) <= (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 300) {
+                      && Number(currentTransform[4]) <= (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + (slideWidth * 2)) {
                           track.style.transform = 'translateX(calc(' + ( -1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) + 'px))';
                       } else if (Number(currentTransform[4]) > (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
-                          track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px - 300px))';
+                          track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px - ' + (slideWidth * 2) + 'px))';
                         /***
                           setTimeout(function(){
                             if (Number(currentTransform[4]) < (-1 * ((numberOfSlides * slideWidth) - trackContainerWidth)) ) {
@@ -100,8 +100,7 @@ jQuery(document).ready(function () {
                       }
                     });
 
-
-                  //Click Prev Equals Move to Right
+                    //Click Prev Equals Move to Right
 
                   prevButton.addEventListener('click', e => {
                     var currentTransform = getComputedStyle(track).getPropertyValue("transform").match(/(-?[0-9\.]+)/g);
@@ -111,7 +110,7 @@ jQuery(document).ready(function () {
                     } else if (Number(currentTransform[4]) >= -299 && Number(currentTransform[4]) < 0) {
                           track.style.transform = 'translateX(calc(0px))';
                     } else if (Number(currentTransform[4]) <= -1) {
-                        track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px + 300px))';
+                        track.style.transform = 'translateX(calc(' + Number(currentTransform[4]) + 'px  + ' + (slideWidth * 2) + 'px))';
 
 
 
@@ -125,7 +124,6 @@ jQuery(document).ready(function () {
 
                       }
                   });
-
 
                   //find width of "youtube-pod-page-container"
                   //find translateX
